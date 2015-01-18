@@ -1,0 +1,42 @@
+package controllers
+
+import (
+	"github.com/astaxie/beego"
+	"time"
+)
+
+type NestPreparer interface {
+	NestPrepare()
+}
+
+type BaseController struct {
+	beego.Controller
+	isLogin bool
+}
+
+// Prepare implemented Prepare method for baseRouter.
+func (this *BaseController) Prepare() {
+
+	v := this.GetSession("LOGIN_SESSION_KEY")
+	if v == nil {
+		this.isLogin = false
+	} else {
+		this.isLogin = true
+	}
+
+	// page start time
+	this.Data["PageStartTime"] = time.Now()
+
+	// Setting properties.
+	this.Data["AppDescription"] = beego.AppConfig.String("AppDescription")
+	this.Data["AppKeywords"] = beego.AppConfig.String("AppKeywords")
+	this.Data["AppName"] = beego.AppConfig.String("AppName")
+	this.Data["AppVer"] = beego.AppConfig.String("AppVer")
+	this.Data["AppUrl"] = beego.AppConfig.String("AppUrl")
+	this.Data["AppLogo"] = beego.AppConfig.String("AppLogo")
+	this.Data["IsProMode"] = beego.AppConfig.String("IsProMode")
+
+	if app, ok := this.AppController.(NestPreparer); ok {
+		app.NestPrepare()
+	}
+}
