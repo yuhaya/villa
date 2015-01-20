@@ -15,7 +15,7 @@
 				</h3>
 			</td>
 			<td width="30%" >
-				<form id="form_data" action="/login" method="post" >
+				<form id="form_data" action="/login" method="post">
 					<table id="login_box" width="260px" height="230px">
 						<tr>
 							<td colspan="2">
@@ -49,5 +49,6 @@
 	</div>
 </body>
 <script src="/static/js/lib/jquery-1.9.1.min.js"></script>
+<script src="/static/js/lib/sha1.js"></script>
 <script src="/static/js/user/login.js"></script>
 </html>

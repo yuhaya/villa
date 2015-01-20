@@ -8,25 +8,25 @@ type UserController struct {
 	BaseController
 }
 
-func (u *UserController) LoginPage() {
-	if u.isLogin {
-		u.Redirect("/", 302)
+func (this *UserController) LoginPage() {
+	if this.isLogin {
+		this.Redirect("/", 302)
 	} else {
-		u.TplNames = "user/login.tpl"
+		this.TplNames = "user/login.tpl"
 	}
 }
 
-func (u *UserController) LoginSubmit() {
-	username := u.GetString("username")
-	password := u.GetString("password")
+func (this *UserController) LoginSubmit() {
+	username := this.GetString("username")
+	password := this.GetString("password")
 	admin_model := models.AdminModel{}
 	code, msg, uid := admin_model.Login(username, password)
 
 	if code == false {
-		u.Ctx.WriteString(msg.Error())
+		this.AjaxReturnFun(false, msg.Error(), nil)
 	} else {
-		u.isLogin = true
-		u.SetSession("LOGIN_SESSION_KEY", uid)
-		u.Redirect("/", 302)
+		this.isLogin = true
+		this.SetSession("LOGIN_SESSION_KEY", uid)
+		this.AjaxReturnFun(true, "", nil)
 	}
 }

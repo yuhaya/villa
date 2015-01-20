@@ -1,9 +1,17 @@
 package controllers
 
 import (
+	"encoding/json"
+	"fmt"
 	"github.com/astaxie/beego"
 	"time"
 )
+
+type AjaxReturn struct {
+	code bool
+	msg  string
+	data interface{}
+}
 
 type NestPreparer interface {
 	NestPrepare()
@@ -38,5 +46,18 @@ func (this *BaseController) Prepare() {
 
 	if app, ok := this.AppController.(NestPreparer); ok {
 		app.NestPrepare()
+	}
+}
+
+func (this *BaseController) AjaxReturnFun(code bool, msg string, data interface{}) {
+	m := AjaxReturn{code, msg, data}
+	b, err := json.Marshal(m)
+	fmt.Printf("%v", m)
+	fmt.Printf("%s", "ssssssssssssssssss")
+	if err == nil {
+		this.Ctx.WriteString(string(b))
+	} else {
+		fmt.Printf("%d", 100000000000)
+		this.Ctx.WriteString("{\"code\":0,\"msg\":\"系统异常\",\"data\":\"\"}")
 	}
 }

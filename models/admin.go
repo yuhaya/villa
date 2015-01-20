@@ -1,7 +1,6 @@
 package models
 
 import (
-	"fmt"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql" // import your used driver
 )
@@ -16,7 +15,6 @@ func (this *AdminModel) Login(v_name string, v_pwd string) (bool, error, int) {
 	if err != nil {
 		return false, err, 0
 	} else {
-		fmt.Println(t_admin.Id, t_admin.Name)
 		return true, nil, t_admin.Id
 	}
 }
