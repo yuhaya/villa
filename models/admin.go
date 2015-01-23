@@ -10,7 +10,7 @@ import (
 type AdminModel struct {
 }
 
-func (this *AdminModel) Login(v_name string, v_pwd string) (bool, error, int) {
+func (this *AdminModel) Login(v_name string, v_pwd string) (bool, error, uint) {
 	o := orm.NewOrm()
 	v_pwd_encrypt_byte := md5.Sum([]byte(v_pwd))
 	v_pwd_encrypt := string(v_pwd_encrypt_byte[:])
