@@ -8,7 +8,7 @@ import (
 type AdminModel struct {
 }
 
-func (this *AdminModel) Login(v_name string, v_pwd string) (bool, error, int) {
+func (this *AdminModel) Login(v_name string, v_pwd string) (bool, error, uint) {
 	o := orm.NewOrm()
 	t_admin := Admin{Name: v_name, Pwd: v_pwd}
 	err := o.Read(&t_admin, "Name", "Pwd")
