@@ -110,7 +110,6 @@ type InquireCurrency struct {
 type InquireExtra struct {
 	Id              uint      `orm:"fk;auto"`
 	InquireId       uint      `orm:"index"`
-	UserPassport    string    `orm:"size(30);null"`
 	CardId          string    `orm:"size(30);null"`
 	FlightNumber    string    `orm:"size(30);null"` //航班号码
 	FlightStartTime time.Time `orm:"null;type(datetime)"`
@@ -149,8 +148,8 @@ type Partner struct {
 	ReservationTelephone string    `orm:"null;size(20)"`
 	ReservationEmail     string    `orm:"null;size(20)"`
 	CreatedDate          time.Time `orm:"auto_now_add;type(datetime)"`
-	ContractStartDate    time.Time `orm:"null;sauto_now_add;type(date)"` //合作开始时间
-	ContractEndDate      time.Time `orm:"null;sauto_now_add;type(date)"`
+	ContractStartDate    time.Time `orm:"null;auto_now_add;type(date)"` //合作开始时间
+	ContractEndDate      time.Time `orm:"null;auto_now_add;type(date)"`
 	Commission           float32   `orm:"default(0);digits(7);decimals(4)"` //提成比例
 	MembershipGroup      string    `orm:"size(20)"`                         //隶属集团
 	State                byte      `orm:"default(0)"`
@@ -216,13 +215,23 @@ type Promotion struct {
 	Id uint `orm:"fk;auto"`
 }
 type Tag struct {
-	Id uint `orm:"fk;auto"`
+	Id   uint   `orm:"fk;auto"`
+	Name string `orm:"size(30)"`
+	Type byte   `orm:"default(0)"` //tag类型，1-风格， 2-位置，3-主题，特色 , 4-情景，5-免费服务项目，6-基础设施，7-活动设施，8-综合设施，9-周边
 }
 type TagProduct struct {
-	Id uint `orm:"fk;auto"`
+	Id        uint `orm:"fk;auto"`
+	ProductId uint `orm:"default(0);index"`
+	TagId     uint `orm:"default(0);index"`
 }
 type User struct {
-	Id uint `orm:"fk;auto"`
+	Id           uint      `orm:"fk;auto"`
+	Name         string    `orm:"size(30)"`
+	Password     string    `orm:"size(40)"`
+	Email        string    `orm:"size(40);null"`
+	Phone        string    `orm:"size(40);null"`
+	AddDate      time.Time `orm:"auto_now_add;type(datetime)"`
+	UserPassport string    `orm:"size(30);null"`
 }
 
 func Regist() {

@@ -1,8 +1,8 @@
 package models
 
 import (
-	"fmt"
 	"crypto/md5"
+	"fmt"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql" // import your used driver
 )
@@ -15,7 +15,9 @@ func (this *AdminModel) Login(v_name string, v_pwd string) (bool, error, uint) {
 	v_pwd_encrypt_byte := md5.Sum([]byte(v_pwd))
 	v_pwd_encrypt := string(v_pwd_encrypt_byte[:])
 	t_admin := Admin{Name: v_name, Pwd: v_pwd_encrypt}
-	fmt.Printf("username:%s  password:%s",v_name,v_pwd_encrypt)
+	fmt.Printf("username:%v  password:%v\n", v_name, v_pwd_encrypt_byte)
+	fmt.Printf("username:%v  password:%v\n", v_name, v_pwd_encrypt_byte[:])
+	fmt.Printf("username:%v  password:%v\n", v_name, v_pwd_encrypt)
 	err := o.Read(&t_admin, "Name", "Pwd")
 	if err != nil {
 		return false, err, 0

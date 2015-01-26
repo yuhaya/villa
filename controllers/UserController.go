@@ -1,8 +1,11 @@
 package controllers
 
 import (
+	"fmt"
 	"villa/models"
 )
+
+var _ = fmt.Sprint("yuahya")
 
 type UserController struct {
 	BaseController
