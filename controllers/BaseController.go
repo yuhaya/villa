@@ -2,15 +2,14 @@ package controllers
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/astaxie/beego"
 	"time"
 )
 
 type AjaxReturn struct {
-	code bool
-	msg  string
-	data interface{}
+	Code bool
+	Msg  string
+	Data interface{}
 }
 
 type NestPreparer interface {
@@ -19,7 +18,7 @@ type NestPreparer interface {
 
 type BaseController struct {
 	beego.Controller
-	isLogin bool
+	IsLogin bool
 }
 
 // Prepare implemented Prepare method for baseRouter.
@@ -27,9 +26,9 @@ func (this *BaseController) Prepare() {
 
 	v := this.GetSession("LOGIN_SESSION_KEY")
 	if v == nil {
-		this.isLogin = false
+		this.IsLogin = false
 	} else {
-		this.isLogin = true
+		this.IsLogin = true
 	}
 
 	// page start time
@@ -52,12 +51,9 @@ func (this *BaseController) Prepare() {
 func (this *BaseController) AjaxReturnFun(code bool, msg string, data interface{}) {
 	m := AjaxReturn{code, msg, data}
 	b, err := json.Marshal(m)
-	fmt.Printf("%v", m)
-	fmt.Printf("%s", "ssssssssssssssssss")
 	if err == nil {
 		this.Ctx.WriteString(string(b))
 	} else {
-		fmt.Printf("%d", 100000000000)
 		this.Ctx.WriteString("{\"code\":0,\"msg\":\"系统异常\",\"data\":\"\"}")
 	}
 }

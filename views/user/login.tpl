@@ -11,7 +11,7 @@
 		<tr>
 			<td width="70%">
 				<h3 id="error">
-					用户名不可以为空
+					
 				</h3>
 			</td>
 			<td width="30%" >

@@ -1,0 +1,507 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fun",
+				"func (*BaseModel)	func (...) {...} ʂ"
+			],
+			[
+				"fo",
+				"font-family"
+			],
+			[
+				"l",
+				"isLogin	bool ν"
+			],
+			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"bo",
+				"border-left"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"t",
+				"TplNames	string ν"
+			],
+			[
+				"c",
+				"Controller	struct ʈ"
+			],
+			[
+				"R",
+				"Router	*beego.App ƒ"
+			],
+			[
+				"Pri",
+				"Println	n int, err error ƒ"
+			],
+			[
+				"Han",
+				"HandleFunc	 ƒ"
+			],
+			[
+				"F",
+				"Fprintf	n int, err error ƒ"
+			],
+			[
+				"Pr",
+				"Println	n int, err error ƒ"
+			],
+			[
+				"PA",
+				"Path	string ν"
+			],
+			[
+				"P",
+				"Println	n int, err error ƒ"
+			],
+			[
+				"pr",
+				"Printf	n int, err error ƒ"
+			],
+			[
+				"Res",
+				"ResponseWriter	interface ¡"
+			],
+			[
+				"han",
+				"HandleFunc	 ƒ"
+			],
+			[
+				"htt",
+				"http	 package ρ"
+			],
+			[
+				"imp",
+				"import	import (...) ʂ"
+			],
+			[
+				"array",
+				"array"
+			],
+			[
+				"json",
+				"json_encode"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 147.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				":",
+				":$ - EOF"
+			],
+			[
+				":q",
+				"Set Syntax: SQL"
+			],
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"install g",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"setting",
+				"Preferences: Settings - User"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"In",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: re",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				":4",
+				"Set Syntax: camlp4"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib2,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation')",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib2,os;pf='Package Control.sublime-package';ipp=sublime.installed_packages_path();os.makedirs(ipp) if not os.path.exists(ipp) else None;open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": true,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/mao/Learn/go/src/villa"
+	],
+	"file_history":
+	[
+		"/Users/mao/Learn/go/src/villa/controllers/MainController.go",
+		"/Users/mao/Learn/go/src/villa/controllers/BaseController.go",
+		"/Users/mao/Learn/go/src/villa/main.go",
+		"/Users/mao/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/mao/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/mao/Learn/go/src/villa/controllers/UserController.go",
+		"/Users/mao/Learn/go/src/villa/.gitignore",
+		"/Users/mao/Library/Application Support/Sublime Text 3/Packages/DashDoc/DashDoc.sublime-settings",
+		"/Users/mao/Learn/go/src/villa/tests/default_test.go",
+		"/Users/mao/Learn/go/src/villa/views/index.tpl",
+		"/Users/mao/Learn/go/src/villa/.idea/copyright/profiles_settings.xml",
+		"/Users/mao/Learn/go/src/villa/routers/router.go",
+		"/Users/mao/Learn/go/src/villa/models/Base.go",
+		"/Users/mao/Learn/go/src/villa/conf/app.conf",
+		"/Users/mao/Learn/go/src/villa/.idea/scopes/scope_settings.xml",
+		"/Users/mao/Learn/go/src/villa/.idea/workspace.xml",
+		"/Users/mao/Learn/go/src/villa/.idea/vcs.xml",
+		"/Users/mao/Learn/go/src/villa/.idea/uiDesigner.xml",
+		"/Users/mao/Learn/go/src/villa/.idea/modules.xml",
+		"/Users/mao/Learn/go/src/villa/.idea/misc.xml",
+		"/Users/mao/Learn/go/src/villa/.idea/go_settings.xml",
+		"/Users/mao/Learn/go/src/villa/.idea/encodings.xml",
+		"/Users/mao/Learn/go/src/villa/.idea/compiler.xml",
+		"/Users/mao/Learn/go/src/villa/.idea/.name",
+		"/Users/mao/Learn/go/src/villa/villa.iml",
+		"/Users/mao/Learn/go/src/villa/villa",
+		"/Users/mao/Learn/go/src/villa/README.md",
+		"/Users/mao/Learn/go/src/villa/npm-debug.log",
+		"/Users/mao/Learn/go/src/villa/LICENSE",
+		"/usr/local/go/src/crypto/md5/md5.go",
+		"/Users/mao/NodeWeb/test/demo/package.json",
+		"/Users/mao/Learn/go/src/villa/models/base_model.go",
+		"/private/var/www/redis-gui/includes/config.sample.inc.php",
+		"/private/var/www/redis-gui/includes/common.inc.php",
+		"/Users/mao/Learn/go/src/github.com/astaxie/beego/beego.go",
+		"/Users/mao/Learn/go/src/github.com/astaxie/beego/app.go",
+		"/Users/mao/NodeWeb/sios/package.json",
+		"/Users/mao/NodeWeb/sios/modules/heart.js",
+		"/Users/mao/NodeWeb/sios/modules/common.js",
+		"/Users/mao/NodeWeb/sios/modules/db.js",
+		"/Users/mao/NodeWeb/sios/routes/relation.js",
+		"/Users/mao/NodeWeb/sios/test/db_test.js",
+		"/Users/mao/NodeWeb/sios/app.js",
+		"/Users/mao/NodeWeb/sios/bin/www",
+		"/Users/mao/Learn/go/src/web/login.gtpl",
+		"/Users/mao/Learn/go/src/web/web.go",
+		"/Users/mao/Learn/go/src/mathapp/main.go",
+		"/Users/mao/Learn/go/src/hello/hello.go",
+		"/Users/mao/Library/Application Support/Sublime Text 3/Packages/GoSublime/9o.md",
+		"/Users/mao/Library/Application Support/Sublime Text 3/Packages/GoSublime/GoSublime.sublime-settings",
+		"/Users/mao/Library/Application Support/Sublime Text 3/Packages/User/GoSublime.sublime-settings",
+		"/Users/mao/Library/Application Support/Sublime Text 3/Packages/GoSublime/CHANGELOG.md",
+		"/Users/mao/NodeWeb/sios/test/student_test.js",
+		"/Users/mao/Web/api/image.php",
+		"/Users/mao/Web/api/message/list.php",
+		"/Users/mao/Web/api/student/list.php",
+		"/Users/mao/Web/api/device.php",
+		"/Users/mao/Web/api/user/get_vice_user.php",
+		"/Users/mao/Web/api/relation/update.php",
+		"/Users/mao/Web/api/user/tickets.php",
+		"/Users/mao/Desktop/EtahFile/sios.sql",
+		"/Users/mao/Web/ec/includes/cls_template.php",
+		"/Users/mao/Web/ec/includes/modules/payment/alipay.php",
+		"/Users/mao/Web/placon/index.php",
+		"/Users/mao/GithubPage/themes/landscape/source/css/_variables.styl",
+		"/Users/mao/GithubPage/themes/landscape/layout/layout.ejs",
+		"/Users/mao/Desktop/tmp/demo.html",
+		"/Users/mao/Desktop/tmp/untitled",
+		"/Users/mao/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/mao/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/Users/mao/Web/iosApi/student/delete.php",
+		"/Users/mao/Web/iosApi/student/update.php",
+		"/Users/mao/Web/iosApi/login.php",
+		"/Users/mao/GithubPage/themes/landscape/_config.yml",
+		"/Users/mao/GithubPage/_config.yml",
+		"/Users/mao/Downloads/GithubPage/_config.yml",
+		"/Users/mao/Downloads/高端度假酒店.html",
+		"/Users/mao/Web/PHPWord/samples/Sample_09_Tables.php",
+		"/Users/mao/NodeWeb/apnagent-playground-skeleton/package.json",
+		"/Users/mao/Web/PHPWord/samples/Sample_12_HeaderFooter.php",
+		"/Users/mao/Web/PHPWord/samples/Sample_Header.php",
+		"/Users/mao/Web/PHPWord/samples/Sample_Footer.php",
+		"/Users/mao/Downloads/PHPWord_0.6.2_Beta/Examples/HeaderFooter.php",
+		"/Users/mao/Downloads/PHPWord_0.6.2_Beta/Examples/Image.php",
+		"/Users/mao/Downloads/PHPWord_0.6.2_Beta/Examples/Section.php",
+		"/Users/mao/Web/PHPWord/samples/Sample_03_Sections.php",
+		"/Users/mao/Downloads/PHPWord_0.6.2_Beta/PHPWord/Section/Header.php",
+		"/Users/mao/Web/ios/index.php",
+		"/Users/mao/Desktop/Etah/Eath/Images.xcassets/AppIcon.appiconset/Contents.json",
+		"/Users/mao/Downloads/sios2014-11-6返回json/routes/user.js",
+		"/Users/mao/Desktop/title.html",
+		"/Users/mao/Desktop/mdouble.css",
+		"/Users/mao/Desktop/spring.html",
+		"/Users/mao/Downloads/20140924模板.html",
+		"/Users/mao/Web/node/index.html"
+	],
+	"find":
+	{
+		"height": 37.0
+	},
+	"find_in_files":
+	{
+		"height": 99.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"ctrl+super+0",
+			"super+",
+			"super+b",
+			"beego",
+			"hooks",
+			"type",
+			"school\"",
+			"school",
+			"sex",
+			"username",
+			"stuid",
+			"alipay",
+			"google",
+			"on",
+			"o'n",
+			"register",
+			"!\",",
+			"_nConnectRetryInterval"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"identity",
+			"school_name\"",
+			"school_name",
+			"gender",
+			"name",
+			"users_id"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 37.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.9o:///Users/mao/Learn/go/src/github.com/nsf/gocode":
+	{
+		"height": 220.0
+	},
+	"output.9o:///Users/mao/Learn/go/src/hello":
+	{
+		"height": 300.0
+	},
+	"output.9o:///Users/mao/Learn/go/src/mathapp":
+	{
+		"height": 310.0
+	},
+	"output.9o:///Users/mao/Learn/go/src/villa":
+	{
+		"height": 229.0
+	},
+	"output.9o:///Users/mao/Learn/go/src/villa/controllers":
+	{
+		"height": 136.0
+	},
+	"output.9o:///Users/mao/Learn/go/src/villa/models":
+	{
+		"height": 136.0
+	},
+	"output.9o:///Users/mao/Learn/go/src/web":
+	{
+		"height": 194.0
+	},
+	"output.GoSublime-main-output":
+	{
+		"height": 136.0
+	},
+	"output.GoSublime-output":
+	{
+		"height": 136.0
+	},
+	"output.GsDoc-output-output":
+	{
+		"height": 136.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "villa.sublime-project",
+	"replace":
+	{
+		"height": 54.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"ma",
+				"main.go"
+			],
+			[
+				"",
+				".gitignore"
+			],
+			[
+				"base",
+				"models/Base.go"
+			],
+			[
+				"ad",
+				"models/admin.go"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 236.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

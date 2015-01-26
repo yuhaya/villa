@@ -21,10 +21,11 @@ $(function(){
 			data:data,
 			dataType:"json",
 			success:function(data){
-				if(data.code){
+				if(data.Code){
 					location.href = "/";
 				}else{
-					$("#error").text(data.msg);
+					$("#error").text(data.Msg);
+					alert("密码或者用户名错误!");
 				}
 			}
 		})

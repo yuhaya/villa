@@ -12,7 +12,7 @@ type UserController struct {
 }
 
 func (this *UserController) LoginPage() {
-	if this.isLogin {
+	if this.IsLogin {
 		this.Redirect("/", 302)
 	} else {
 		this.TplNames = "user/login.tpl"
@@ -28,7 +28,7 @@ func (this *UserController) LoginSubmit() {
 	if code == false {
 		this.AjaxReturnFun(false, msg.Error(), nil)
 	} else {
-		this.isLogin = true
+		this.IsLogin = true
 		this.SetSession("LOGIN_SESSION_KEY", uid)
 		this.AjaxReturnFun(true, "", nil)
 	}
