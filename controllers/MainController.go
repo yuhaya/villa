@@ -4,12 +4,24 @@ type MainController struct {
 	BaseController
 }
 
-func (c *MainController) Main() {
-	if c.IsLogin {
-		c.Data["Website"] = "beego.me222"
-		c.Data["Email"] = "astaxie@gmail.com222222"
-		c.TplNames = "index.tpl"
-	} else {
+func (c *MainController) NestPrepare() {
+	if !c.IsLogin {
 		c.Redirect("/login", 302)
 	}
+}
+
+func (c *MainController) Main() {
+	c.TplNames = "frame.tpl"
+}
+
+func (c *MainController) TopBody() {
+	c.TplNames = "index.tpl"
+}
+
+func (c *MainController) LeftBody() {
+	c.TplNames = "index.tpl"
+}
+
+func (c *MainController) RightBody() {
+	c.TplNames = "index.tpl"
 }

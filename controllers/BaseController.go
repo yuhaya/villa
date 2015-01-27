@@ -43,6 +43,10 @@ func (this *BaseController) Prepare() {
 	this.Data["AppLogo"] = beego.AppConfig.String("AppLogo")
 	this.Data["IsProMode"] = beego.AppConfig.String("IsProMode")
 
+	controllerName, methodName := this.GetControllerAndAction()
+	this.Data["ControllerName"] = controllerName
+	this.Data["MethodName"] = methodName
+
 	if app, ok := this.AppController.(NestPreparer); ok {
 		app.NestPrepare()
 	}
