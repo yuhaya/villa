@@ -48,5 +48,6 @@ func (this *MainController) LeftBody() {
 }
 
 func (this *MainController) RightBody() {
+	this.Layout = "layout.tpl"
 	this.TplNames = "rightbody.tpl"
 }

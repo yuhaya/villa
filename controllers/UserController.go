@@ -33,3 +33,15 @@ func (this *UserController) LoginSubmit() {
 		this.AjaxReturnFun(true, "", nil)
 	}
 }
+
+func (this *UserController) LoginOut() {
+
+	this.DelSession("LOGIN_SESSION_KEY")
+	this.IsLogin = false
+
+	if this.IsAjax() {
+		this.AjaxReturnFun(true, "", "退出成功!")
+	} else {
+		this.Redirect("/login", 302)
+	}
+}

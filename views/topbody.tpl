@@ -31,7 +31,7 @@
     <tr>
         <td style="width:160px;color: #ffffff;text-align: center">
             <h2>Villa Manager</h2>
-            <p>user : <span>{{.Name}}</span></p>
+            <p>ID : <span>{{.Name}}</span></p>
         </td>
         <td>
             &nbsp;&nbsp;
@@ -48,7 +48,18 @@
         window.top.alert("系统异常！请重新登录！");
     }
     $("#login_out").click(function(){
-        window.top.alert("登出");
+        $.ajax({
+            type:"post",
+            url:"/loginout",
+            dataType:"json",
+            success:function(data){
+                if(data.Code){
+                    window.top.location.href = "/login";
+                }else{
+                    window.top.alert("系统异常!");
+                }
+            }
+        })
     });
 </script>
 </body>

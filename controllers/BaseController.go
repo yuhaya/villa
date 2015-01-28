@@ -3,6 +3,8 @@ package controllers
 import (
 	"encoding/json"
 	"github.com/astaxie/beego"
+	"regexp"
+	"strings"
 	"time"
 )
 
@@ -44,8 +46,14 @@ func (this *BaseController) Prepare() {
 	this.Data["IsProMode"] = beego.AppConfig.String("IsProMode")
 
 	controllerName, methodName := this.GetControllerAndAction()
-	this.Data["ControllerName"] = controllerName
-	this.Data["MethodName"] = methodName
+	reg := regexp.MustCompile(`Controller`)
+	controllerName = reg.ReplaceAllString(controllerName, "")
+	this.Data["ControllerName"] = strings.ToLower(controllerName)
+	this.Data["MethodName"] = strings.ToLower(methodName)
+
+	if controllerName != "Main" && !this.IsAjax() {
+		this.Layout = "layout.tpl"
+	}
 
 	if app, ok := this.AppController.(NestPreparer); ok {
 		app.NestPrepare()
