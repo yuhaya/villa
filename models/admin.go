@@ -24,6 +24,14 @@ func (this *AdminModel) Login(v_name string, v_pwd string) (bool, error, uint) {
 		return true, nil, t_admin.Id
 	}
 }
+
+func (this *AdminModel) UserInfo(admin_id uint) (Admin, error) {
+
+	o := orm.NewOrm()
+	u_admin := Admin{Id: admin_id}
+	err := o.Read(&u_admin)
+	return u_admin, err
+}
 func main() {
 	//	o := orm.NewOrm()
 	//
