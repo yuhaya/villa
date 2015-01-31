@@ -54,7 +54,7 @@
         </td>
     </tr>
     <tr>
-        <td>
+        <td data-url="/partner/list">
             合作方管理
         </td>
     </tr>
@@ -85,5 +85,12 @@
     </tr>
 
 </table>
+<script type="application/javascript" src="/static/js/lib/jquery-1.9.1.min.js"></script>
+<script>
+    $("#list td").click(function(){
+        var url = $(this).attr("data-url");
+        window.top.frames["right"].location.href = url;
+    })
+</script>
 </body>
 </html>

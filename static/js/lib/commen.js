@@ -1,7 +1,12 @@
 define(function(require, exports, module) {
 
     exports.init = function(){
-        alert("commen");
+        init_style();
+    }
+
+    function init_style(){
+        var win_h = $(window).height();
+        $("body").height(win_h);
     }
 
 });
