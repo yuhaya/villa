@@ -29,7 +29,7 @@
 <body>
 <table id="main">
     <tr>
-        <td style="width:160px;color: #ffffff;text-align: center">
+        <td style="width:180px;color: #ffffff;text-align: center">
             <h2>Villa Manager</h2>
             <p>ID : <span>{{.Name}}</span></p>
         </td>
