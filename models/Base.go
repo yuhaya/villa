@@ -152,7 +152,7 @@ type Partner struct {
 	ContractEndDate      time.Time `orm:"null;auto_now_add;type(date)"`
 	Commission           float32   `orm:"default(0);digits(7);decimals(4)"` //提成比例
 	MembershipGroup      string    `orm:"size(20)"`                         //隶属集团
-	State                byte      `orm:"default(0)"`
+	State                byte      `orm:"default(0)"`                       //状态 0=》洽谈中 1=》已合作 2=》解除合作 3=》未恢复的 4=》删除的
 	Memo                 string    `orm:"size(255);null"`
 	Address              string    `orm:"size(255);null"` //联系地址
 	Website              string    `orm:"size(100);null"` //网址

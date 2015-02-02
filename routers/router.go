@@ -13,4 +13,8 @@ func init() {
 
 	beego.Router("/login", &controllers.UserController{}, "get:LoginPage;post:LoginSubmit")
 	beego.Router("/loginout", &controllers.UserController{}, "*:LoginOut")
+
+	beego.Router("/partner/list", &controllers.PartnerController{}, "get:List")
+	beego.Router("/partner", &controllers.PartnerController{}, "get:Add")
+
 }
