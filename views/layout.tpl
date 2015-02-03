@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="/static/css/{{.ControllerName}}/{{.MethodName}}.css"/>
 </head>
 <body>
-
+<div id="title_name">
+{{ if ne .TitleName ""}}
+    >> {{.TitleName}}
+{{ end }}
+</div>
 <div id="content">{{.LayoutContent}}</div>
 
 <script type="application/javascript" src="/static/js/lib/jquery-1.9.1.min.js"></script>

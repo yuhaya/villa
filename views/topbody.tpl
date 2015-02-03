@@ -54,7 +54,7 @@
             dataType:"json",
             success:function(data){
                 if(data.Code){
-                    window.top.location.href = "/login";
+                    window.top.location.href = "{{urlfor "UserController.LoginPage"}}";
                 }else{
                     window.top.alert("系统异常!");
                 }

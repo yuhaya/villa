@@ -54,7 +54,7 @@
         </td>
     </tr>
     <tr>
-        <td data-url="/partner/list">
+        <td data-url="{{urlfor "PartnerController.List"}}">
             合作方管理
         </td>
     </tr>

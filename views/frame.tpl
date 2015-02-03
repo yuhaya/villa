@@ -3,11 +3,11 @@
 <html>
 <frameset rows="8%,92%">
 
-    <frame src="/frame/top" scrolling="no" noresize="noresize" name="top"/>
+    <frame src="{{urlfor "MainController.TopBody"}}" scrolling="no" noresize="noresize" name="top"/>
 
     <frameset cols="120px,*">
-        <frame src="/frame/left" noresize="noresize"  name="left"/>
-        <frame src="/frame/right" name="right"/>
+        <frame src="{{urlfor "MainController.LeftBody"}}" noresize="noresize"  name="left"/>
+        <frame src="{{urlfor "MainController.RightBody"}}" name="right"/>
     </frameset>
 
 </frameset>

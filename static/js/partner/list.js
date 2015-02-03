@@ -16,7 +16,7 @@ define(function(require, exports, module) {
             if($(this).hasClass("select")){
                 return;
             }else{
-                location.href = "/partner/list?state="+$(this).attr("data-val")
+                location.href = $(this).attr("data-url")+"?state="+$(this).attr("data-val")
             }
         })
     }

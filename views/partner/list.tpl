@@ -11,7 +11,7 @@
                 </ul>
             </td>
             <td style="text-align: right">
-                <input type="button" id="add_partner" value="ADD" class="add_btn"/>
+                <input type="button" id="add_partner" value="ADD" class="add_btn" data-url='{{urlfor "PartnerController.Add"}}'/>
             </td>
         </tr>
     </table>

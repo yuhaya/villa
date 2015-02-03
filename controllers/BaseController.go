@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"encoding/json"
+	// "encoding/json"
 	"github.com/astaxie/beego"
 	"regexp"
 	"strings"
@@ -44,6 +44,7 @@ func (this *BaseController) Prepare() {
 	this.Data["AppUrl"] = beego.AppConfig.String("AppUrl")
 	this.Data["AppLogo"] = beego.AppConfig.String("AppLogo")
 	this.Data["IsProMode"] = beego.AppConfig.String("IsProMode")
+	this.Data["TitleName"] = ""
 
 	controllerName, methodName := this.GetControllerAndAction()
 	reg := regexp.MustCompile(`Controller`)
@@ -62,10 +63,12 @@ func (this *BaseController) Prepare() {
 
 func (this *BaseController) AjaxReturnFun(code bool, msg string, data interface{}) {
 	m := AjaxReturn{code, msg, data}
-	b, err := json.Marshal(m)
-	if err == nil {
-		this.Ctx.WriteString(string(b))
-	} else {
-		this.Ctx.WriteString("{\"code\":0,\"msg\":\"系统异常\",\"data\":\"\"}")
-	}
+	this.Data["json"] = &m
+    this.ServeJson()
+	// b, err := json.Marshal(m)
+	// if err == nil {
+	// 	this.Ctx.WriteString(string(b))
+	// } else {
+	// 	this.Ctx.WriteString("{\"code\":0,\"msg\":\"系统异常\",\"data\":\"\"}")
+	// }
 }

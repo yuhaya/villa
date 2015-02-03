@@ -10,6 +10,7 @@ type PartnerController struct {
 }
 
 func (this *PartnerController) List() {
+	this.Data["TitleName"] = "合作方管理"
 	status, err := this.GetInt8("state")
 	if err != nil {
 		status = 1
@@ -33,5 +34,18 @@ func (this *PartnerController) List() {
 }
 
 func (this *PartnerController) Add() {
+	this.Data["TitleName"] = "添加合作方"
+	this.TplNames = "partner/add.tpl"
+}
+
+func (this *PartnerController) AddSubmit() {
+	 p_model := models.Partner{}
+    if err := this.ParseForm(&p_model); err != nil {
+        //handle error
+        fmt.Printf("%s", err.Error())
+    }else{
+    	fmt.Printf("%v", p_model)
+    }
+	this.Data["TitleName"] = "添加合作方"
 	this.TplNames = "partner/add.tpl"
 }

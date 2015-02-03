@@ -5,7 +5,9 @@ import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql" // import your used driver
+	"github.com/astaxie/beego/validation"
 	"time"
+	"strings"
 )
 
 type Base struct {
@@ -14,9 +16,16 @@ type Base struct {
 //管理员表
 type Admin struct {
 	Id   uint      `orm:"fk;auto"`
-	Name string    `orm:"size(20)"`
-	Pwd  string    `orm:"size(40)"`
-	Date time.Time `orm:"auto_now_add"`
+	Name string    `orm:"size(20)" valid:"Required"`
+	Pwd  string    `orm:"size(40)" valid:"Required"`
+	Date time.Time `orm:"auto_now_add" valid:"Required"`
+}
+
+func (this *Admin) Valid(v *validation.Validation) {
+    if strings.Index(this.Name, "admin") != -1 {
+        // 通过 SetError 设置 Name 的错误信息，HasErrors 将会返回 true
+        v.SetError("Name", "名称里不能含有 admin")
+    }
 }
 
 //当前币种对人民币的汇率
@@ -42,9 +51,9 @@ type Destination struct {
 	Right      uint16
 	SortNum    uint16 `orm:"default(0)"` //排序
 	Memo       string `orm:"size(256)"`
-	Tag        byte   `orm:"default(0)"` //标签 0=>默认
-	Status     byte   `orm:"default(1)"` //是否可用 1=>可用 0=>不可用
-	Show       byte   `orm:"default(0)"` //是否显示 1=>显示 0=>不显示
+	Tag        byte   `orm:"default(0)" valid:"Min(0)` //标签 0=>默认
+	Status     byte   `orm:"default(1)" valid:"Range(0, 1)` //是否可用 1=>可用 0=>不可用
+	Show       byte   `orm:"default(0)" valid:"Range(0, 1)` //是否显示 1=>显示 0=>不显示
 }
 
 type DestinationImg struct {
@@ -138,7 +147,7 @@ type InquireVilla struct {
 
 }
 type Partner struct {
-	Id                   uint      `orm:"fk;auto"`
+	Id                   uint      `orm:"fk;auto" form:"-"`
 	Name                 string    `orm:"size(30)"`
 	DestinationId        uint      `orm:"default(0)"`
 	ManagerContact       string    `orm:"null;size(20)"` //别墅管理联系人
@@ -147,7 +156,7 @@ type Partner struct {
 	ReservationContact   string    `orm:"null;size(20)"` //别墅预订联系人
 	ReservationTelephone string    `orm:"null;size(20)"`
 	ReservationEmail     string    `orm:"null;size(20)"`
-	CreatedDate          time.Time `orm:"auto_now_add;type(datetime)"`
+	CreatedDate          time.Time `orm:"auto_now_add;type(datetime)" form:"-"`
 	ContractStartDate    time.Time `orm:"null;auto_now_add;type(date)"` //合作开始时间
 	ContractEndDate      time.Time `orm:"null;auto_now_add;type(date)"`
 	Commission           float32   `orm:"default(0);digits(7);decimals(4)"` //提成比例

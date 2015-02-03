@@ -6,7 +6,7 @@
 				</h3>
 			</td>
 			<td width="30%" >
-				<form id="form_data" action="/login" method="post">
+				<form id="form_data" action="{{urlfor "UserController.LoginSubmit"}}" method="post">
 					<table id="login_box" width="260px" height="230px">
 						<tr>
 							<td colspan="2">
