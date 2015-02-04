@@ -54,7 +54,7 @@ func (this *PartnerController) AddSubmit() {
 
 		this.OutputMsg(err.Error(), urlmsg)
 	} else {
-		p_model.CreatedDate = time.Now().Format("2013-08-11")
+		p_model.CreatedDate = time.Now()
 
 		urlmsg := make(map[string]string)
 		urlmsg["返回上一页"] = "javascript:history.go(-1)"
@@ -67,6 +67,4 @@ func (this *PartnerController) AddSubmit() {
 			this.OutputMsg(err.Error(), urlmsg)
 		}
 	}
-	this.Data["TitleName"] = "添加合作方"
-	this.TplNames = "partner/add.tpl"
 }
