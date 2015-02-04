@@ -5,6 +5,7 @@ import (
 	"github.com/astaxie/beego"
 	"regexp"
 	"strings"
+	"text/template"
 	"time"
 )
 
@@ -64,11 +65,19 @@ func (this *BaseController) Prepare() {
 func (this *BaseController) AjaxReturnFun(code bool, msg string, data interface{}) {
 	m := AjaxReturn{code, msg, data}
 	this.Data["json"] = &m
-    this.ServeJson()
+	this.ServeJson()
 	// b, err := json.Marshal(m)
 	// if err == nil {
 	// 	this.Ctx.WriteString(string(b))
 	// } else {
 	// 	this.Ctx.WriteString("{\"code\":0,\"msg\":\"系统异常\",\"data\":\"\"}")
 	// }
+}
+
+func (this *BaseController) OutputMsg(msg string, urlmsg map[string]string) {
+	t, _ := template.New("sysmsg.tpl").ParseFiles(beego.ViewsPath + "/sysmsg.tpl")
+	data := make(map[string]interface{})
+	data["content"] = msg
+	data["urlmsg"] = urlmsg
+	t.Execute(this.Ctx.ResponseWriter, data)
 }

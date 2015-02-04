@@ -16,14 +16,14 @@ define(function(require, exports, module) {
             if($(this).hasClass("select")){
                 return;
             }else{
-                location.href = $(this).attr("data-url")+"?state="+$(this).attr("data-val")
+                location.href = $("#ul_list").attr("data-url")+"?state="+$(this).attr("data-val")
             }
         })
     }
 
     function add_partner(){
         $("#add_partner").click(function(){
-            location.href = "/partner"
+            location.href = $(this).attr("data-url")
         })
     }
 

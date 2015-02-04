@@ -2,7 +2,7 @@
     <table class="HEAD">
         <tr>
             <td>
-                <ul class="UL">
+                <ul class="UL" id="ul_list" data-url='{{urlfor "PartnerController.List"}}'>
                     <li data-val="1">已合作</li>
                     <li data-val="0">洽谈中</li>
                     <li data-val="2">解除合作</li>

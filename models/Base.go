@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
-	_ "github.com/go-sql-driver/mysql" // import your used driver
 	"github.com/astaxie/beego/validation"
-	"time"
+	_ "github.com/go-sql-driver/mysql" // import your used driver
 	"strings"
+	"time"
 )
 
 type Base struct {
@@ -22,10 +22,10 @@ type Admin struct {
 }
 
 func (this *Admin) Valid(v *validation.Validation) {
-    if strings.Index(this.Name, "admin") != -1 {
-        // 通过 SetError 设置 Name 的错误信息，HasErrors 将会返回 true
-        v.SetError("Name", "名称里不能含有 admin")
-    }
+	if strings.Index(this.Name, "admin") != -1 {
+		// 通过 SetError 设置 Name 的错误信息，HasErrors 将会返回 true
+		v.SetError("Name", "名称里不能含有 admin")
+	}
 }
 
 //当前币种对人民币的汇率
@@ -51,7 +51,7 @@ type Destination struct {
 	Right      uint16
 	SortNum    uint16 `orm:"default(0)"` //排序
 	Memo       string `orm:"size(256)"`
-	Tag        byte   `orm:"default(0)" valid:"Min(0)` //标签 0=>默认
+	Tag        byte   `orm:"default(0)" valid:"Min(0)`      //标签 0=>默认
 	Status     byte   `orm:"default(1)" valid:"Range(0, 1)` //是否可用 1=>可用 0=>不可用
 	Show       byte   `orm:"default(0)" valid:"Range(0, 1)` //是否显示 1=>显示 0=>不显示
 }
@@ -157,8 +157,8 @@ type Partner struct {
 	ReservationTelephone string    `orm:"null;size(20)"`
 	ReservationEmail     string    `orm:"null;size(20)"`
 	CreatedDate          time.Time `orm:"auto_now_add;type(datetime)" form:"-"`
-	ContractStartDate    time.Time `orm:"null;auto_now_add;type(date)"` //合作开始时间
-	ContractEndDate      time.Time `orm:"null;auto_now_add;type(date)"`
+	ContractStartDate    time.Time `orm:"null;auto_now_add;type(date)" form:"ContractStartDate,2006-01-02"` //合作开始时间
+	ContractEndDate      time.Time `orm:"null;auto_now_add;type(date)" form:"ContractEndDate,2006-01-02"`
 	Commission           float32   `orm:"default(0);digits(7);decimals(4)"` //提成比例
 	MembershipGroup      string    `orm:"size(20)"`                         //隶属集团
 	State                byte      `orm:"default(0)"`                       //状态 0=》洽谈中 1=》已合作 2=》解除合作 3=》未恢复的 4=》删除的
