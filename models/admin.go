@@ -6,7 +6,25 @@ import (
 	"fmt"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql" // import your used driver
+	"github.com/astaxie/beego/validation"
+	"time"
+	"strings"
 )
+
+//管理员表
+type Admin struct {
+	Id   uint      `orm:"fk;auto"`
+	Name string    `orm:"size(20)" valid:"Required"`
+	Pwd  string    `orm:"size(40)" valid:"Required"`
+	Date time.Time `orm:"auto_now_add" valid:"Required"`
+}
+
+func (this *Admin) Valid(v *validation.Validation) {
+	if strings.Index(this.Name, "admin") != -1 {
+		// 通过 SetError 设置 Name 的错误信息，HasErrors 将会返回 true
+		v.SetError("Name", "名称里不能含有 admin")
+	}
+}
 
 type AdminModel struct {
 }
@@ -31,27 +49,4 @@ func (this *AdminModel) UserInfo(admin_id uint) (Admin, error) {
 	u_admin := Admin{Id: admin_id}
 	err := o.Read(&u_admin)
 	return u_admin, err
-}
-func main() {
-	//	o := orm.NewOrm()
-	//
-	//	user := Admin{Name: "slene"}
-	//
-	//	// insert
-	//	id, err := o.Insert(&user)
-	//	fmt.Printf("ID: %d, ERR: %v\n", id, err)
-	//
-	//	// update
-	//	user.Name = "astaxie"
-	//	num, err := o.Update(&user)
-	//	fmt.Printf("NUM: %d, ERR: %v\n", num, err)
-	//
-	//	// read one
-	//	u := User{Id: user.Id}
-	//	err = o.Read(&u)
-	//	fmt.Printf("ERR: %v\n", err)
-	//
-	//	// delete
-	//	num, err = o.Delete(&u)
-	//	fmt.Printf("NUM: %d, ERR: %v\n", num, err)
 }
