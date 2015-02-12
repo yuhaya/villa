@@ -17,7 +17,7 @@ body{
 .TABLE th{
 	background-color: blue;
 	color: #fff;
-	height: 30px;
+	height: 20px;
 	border: 2px solid #fff;
 }
 .TABLE{
@@ -90,7 +90,7 @@ body{
 	float: left;
 	background-color: #fff;
 	height: 25px;
-	line-height: 25px;
+	line-height: 15px;
 	padding: 5px 20px;
 	margin-top: 10px;
 	border-bottom: 2px solid #ccc;
@@ -121,6 +121,6 @@ body{
 table,table td,table th{
 	border: 2px solid #666;
 	border-collapse:collapse;
-	padding: 5px;
+	padding: 2px;
 	background-color: #F7F7F7;
 }

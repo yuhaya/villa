@@ -4,6 +4,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>{{.AppName}}</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="/static/js/lib/bootstrap-3.3.2/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="/static/js/lib/bootstrap-3.3.2/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/static/css/lib/common.css"/>
     <link rel="stylesheet" href="/static/css/{{.ControllerName}}/{{.MethodName}}.css"/>
 </head>
@@ -17,12 +21,16 @@
 
 <script type="application/javascript" src="/static/js/lib/jquery-1.9.1.min.js"></script>
 <script type="application/javascript" src="/static/js/lib/sea.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="/static/js/lib/bootstrap-3.3.2/js/bootstrap.min.js"></script>
 <script type="application/javascript">
     seajs.config({
 
         // 别名配置
         alias: {
-            'es5-safe': '/static/js/lib/es5-safe'
+            'es5-safe': '/static/js/lib/es5-safe',
+            'validate': '/static/js/lib/validate',
+            'validate_helper':'/static/js/lib/validate_helper'
         },
 
         // 路径配置

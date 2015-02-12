@@ -11,7 +11,7 @@
                 </ul>
             </td>
             <td style="text-align: right">
-                <input type="button" id="add_partner" value="ADD" class="add_btn" data-url='{{urlfor "PartnerController.Add"}}'/>
+                <input type="button" id="add_partner" value="ADD" class="btn btn-primary"  data-url='{{urlfor "PartnerController.Add"}}'/>
             </td>
         </tr>
     </table>
@@ -53,8 +53,8 @@
                     <td>{{.Website}}</td>
                     <td>{{.Commission}}</td>
                     <td style="width: 150px">
-                        <input type="button" value="Edit" class="edit_btn"/>
-                        <input type="button" value="Delete" class="del_btn"/>
+                        <input type="button" value="Edit"  class="btn btn-info"/>
+                        <input type="button" value="Delete" class="btn btn-danger"/>
                     </td>
                 {{end}}
 

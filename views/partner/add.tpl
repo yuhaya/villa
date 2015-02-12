@@ -1,9 +1,12 @@
-<form action="{{urlfor "PartnerController.AddSubmit"}}" method="post">
+<form action="{{urlfor "PartnerController.AddSubmit"}}" method="post" id="">
 	<table class="add_table">
 		<tr>
 			<td>名称</td>
 			<td>
-				<input type="text" name="Name">
+				<div class="control-group">
+			    	<input type="text" name="Name" id="Name" data-rules="required|max_length[10]" data-rules="Name" class="validate">
+			    	<p class="help-block"></p>
+			  	</div>
 			</td>
 		</tr>
 		<tr>
