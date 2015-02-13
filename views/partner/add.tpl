@@ -1,4 +1,4 @@
-<form action="{{urlfor "PartnerController.AddSubmit"}}" method="post" id="">
+<form action="{{urlfor "PartnerController.AddSubmit"}}" method="post" name="addPartner" id="addPartner">
 	<table class="add_table">
 		<tr>
 			<td>名称</td>
@@ -14,10 +14,13 @@
 				目的地
 			</td>
 			<td>
-				<select name="DestinationId" id="">
-					<option value="0">选择目的地</option>
-					<option value=""></option>
-				</select>
+				<div class="control-group">
+					<select name="DestinationId" id="DestinationId" data-rules="required|integer|max_length[1]|max_length[2]" data-rules="DestinationId" class="validate">
+						<option >选择目的地</option>
+						<option value=""></option>
+					</select>
+				<p class="help-block"></p>
+			  	</div>
 			</td>
 		</tr>
 		<tr>
@@ -167,8 +170,8 @@
 				
 			</td>
 			<td>
-				<input type="button" value="取消" class="cancel_btn" onclick="history.go(-1);">
-				<input type="submit" value="添加" class="add_btn">
+				<input type="button" value="取消" class="btn btn-default" onclick="history.go(-1);">
+				<input type="submit" value="添加" id="partner_submit" class="btn btn-success">
 			</td>
 		</tr>
 	</table>

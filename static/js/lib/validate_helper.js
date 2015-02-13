@@ -5,6 +5,8 @@ define(function(require, exports, module) {
  * validate.js and bootstrap
  * ===================================================
  */
+ var FormValidator = require("validate")
+ 
 ; !function( $ ){
 $.fn.extend({
 validate: function( callback ) {
