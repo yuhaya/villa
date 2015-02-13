@@ -1,35 +1,47 @@
 package controllers
 
 import (
+	"fmt"
 	"villa/models"
 )
+
+var _ = fmt.Sprint("yuahya")
 
 type UserController struct {
 	BaseController
 }
 
-func (u *UserController) LoginPage() {
-	if u.isLogin {
-		u.Redirect("/", 302)
+func (this *UserController) LoginPage() {
+	if this.IsLogin {
+		this.Redirect("/", 302)
 	} else {
-		admin_mode := models.AdminModel{Name: "yuhaya", Email: "3wmaocomputer@gmail.com"}
-		admin_mode.GetSession()
-		u.TplNames = "user/login.tpl"
+		this.TplNames = "user/login.tpl"
 	}
 }
 
-func (u *UserController) LoginSubmit() {
-	username := u.GetString("username")
-	password := u.GetString("password")
-	if username == "yuhaya" && password == "123" {
-		u.isLogin = true
+func (this *UserController) LoginSubmit() {
+	username := this.GetString("username")
+	password := this.GetString("password")
+	admin_model := models.AdminModel{}
+	code, msg, uid := admin_model.Login(username, password)
 
-		var userid int = 1
-		u.SetSession("LOGIN_SESSION_KEY", userid)
-
-		u.Redirect("/", 302)
+	if code == false {
+		this.AjaxReturnFun(false, msg.Error(), nil)
 	} else {
-		u.Ctx.WriteString("验证失败!")
+		this.IsLogin = true
+		this.SetSession("LOGIN_SESSION_KEY", uid)
+		this.AjaxReturnFun(true, "", nil)
 	}
-	return
+}
+
+func (this *UserController) LoginOut() {
+
+	this.DelSession("LOGIN_SESSION_KEY")
+	this.IsLogin = false
+
+	if this.IsAjax() {
+		this.AjaxReturnFun(true, "", "退出成功!")
+	} else {
+		this.Redirect("/login", 302)
+	}
 }

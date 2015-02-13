@@ -15,12 +15,14 @@ tmp
 
 *.cgo1.go
 *.cgo2.c
+npm-debug.log
 _cgo_defun.c
 _cgo_gotypes.go
 _cgo_export.*
 
 _testmain.go
 villa.iml
+villa
 
 *.exe
 *.test

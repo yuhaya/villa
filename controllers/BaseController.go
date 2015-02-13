@@ -1,9 +1,19 @@
 package controllers
 
 import (
+	// "encoding/json"
 	"github.com/astaxie/beego"
+	"regexp"
+	"strings"
+	"text/template"
 	"time"
 )
+
+type AjaxReturn struct {
+	Code bool
+	Msg  string
+	Data interface{}
+}
 
 type NestPreparer interface {
 	NestPrepare()
@@ -11,7 +21,7 @@ type NestPreparer interface {
 
 type BaseController struct {
 	beego.Controller
-	isLogin bool
+	IsLogin bool
 }
 
 // Prepare implemented Prepare method for baseRouter.
@@ -19,9 +29,9 @@ func (this *BaseController) Prepare() {
 
 	v := this.GetSession("LOGIN_SESSION_KEY")
 	if v == nil {
-		this.isLogin = false
+		this.IsLogin = false
 	} else {
-		this.isLogin = true
+		this.IsLogin = true
 	}
 
 	// page start time
@@ -35,8 +45,39 @@ func (this *BaseController) Prepare() {
 	this.Data["AppUrl"] = beego.AppConfig.String("AppUrl")
 	this.Data["AppLogo"] = beego.AppConfig.String("AppLogo")
 	this.Data["IsProMode"] = beego.AppConfig.String("IsProMode")
+	this.Data["TitleName"] = ""
+
+	controllerName, methodName := this.GetControllerAndAction()
+	reg := regexp.MustCompile(`Controller`)
+	controllerName = reg.ReplaceAllString(controllerName, "")
+	this.Data["ControllerName"] = strings.ToLower(controllerName)
+	this.Data["MethodName"] = strings.ToLower(methodName)
+
+	if controllerName != "Main" && !this.IsAjax() {
+		this.Layout = "layout.tpl"
+	}
 
 	if app, ok := this.AppController.(NestPreparer); ok {
 		app.NestPrepare()
 	}
+}
+
+func (this *BaseController) AjaxReturnFun(code bool, msg string, data interface{}) {
+	m := AjaxReturn{code, msg, data}
+	this.Data["json"] = &m
+	this.ServeJson()
+	// b, err := json.Marshal(m)
+	// if err == nil {
+	// 	this.Ctx.WriteString(string(b))
+	// } else {
+	// 	this.Ctx.WriteString("{\"code\":0,\"msg\":\"系统异常\",\"data\":\"\"}")
+	// }
+}
+
+func (this *BaseController) OutputMsg(msg string, urlmsg map[string]string) {
+	t, _ := template.New("sysmsg.tpl").ParseFiles(beego.ViewsPath + "/sysmsg.tpl")
+	data := make(map[string]interface{})
+	data["content"] = msg
+	data["urlmsg"] = urlmsg
+	t.Execute(this.Ctx.ResponseWriter, data)
 }
