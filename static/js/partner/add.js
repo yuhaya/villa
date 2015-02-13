@@ -1,6 +1,7 @@
 define(function(require, exports, module) {
 
 	require("validate_helper");
+	
     exports.init = function(){
         init_style();
     }
